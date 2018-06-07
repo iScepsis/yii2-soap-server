@@ -383,7 +383,13 @@ class WsdlGenerator extends Component
             } else {
                 $return = null;
             }
-            $this->messages[$methodName . 'Out'] = array('return' => $return);
+            $returnParamName = 'return';
+            if (preg_match("/@return\s.*returnParamName:(\w*)/im", $comment, $matches)) {
+                if (!empty($matches[1])) {
+                    $returnParamName = $matches[1];
+                }
+            }
+            $this->messages[$methodName . 'Out'] = array($returnParamName => $return);
         } else {
             if (preg_match('/^@return\s+([\w\.\\\]+(\[\s*\])?)\s*?(.*)$/im', $comment, $matches)) {
                 $type = preg_replace('/\\\\+/', '\\', $matches[1]);
