@@ -1,5 +1,5 @@
 {
-	"name": "subdee/yii2soapserver",
+	"name": "iScepsis/yii2soapserver",
 	"description": "SOAP server for the Yii 2 framework based on the Yii 1 implementation",
 	"keywords": ["yii2", "soap", "server"],
 	"homepage": "https://github.com/subdee/yii2-soap-server",
@@ -12,6 +12,7 @@
 	},
 	"minimum-stability": "dev",
 	"require": {
+		"subdee/yii2soapserver": "dev-master",
 		"roave/security-advisories": "dev-master",
 		"ext-soap": "*",
 		"yiisoft/yii2": "*",
@@ -19,5 +20,11 @@
 	},
 	"autoload": {
 		"psr-4": {"subdee\\soapserver\\": ""}
-	}
+	},
+	"repositories": [
+		{
+			"type": "vcs",
+			"url": "https://github.com/subdee/yii2-soap-server"
+		}
+	]
 }
